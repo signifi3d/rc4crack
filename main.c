@@ -111,6 +111,10 @@ int main(int argc, char ** argv) {
 			brute_flag = false;
 		} else if ( strcmp(argv[arg], "-w") == 0 ) {
 			wordlist = fopen(argv[arg+1], "r");
+			if (wordlist == NULL) {
+				fprintf(stderr, "Yo, your file is messed up.\n");
+				exit(EXIT_FAILURE);
+			}
 			++arg;
 		} else if ( strcmp(argv[arg], "-l") == 0 ) {
 			lower_bound = atoi(argv[arg+1]);
